@@ -10,7 +10,7 @@ ___  ___  ___   ______  ___   _   _  _____
                                            
 ```                                                                             
 
-**MAZAHS is an App that utilizes Audd's music recognition API to provide music recognition and lyric tools to music-lovers.**
+**MAZAHS is an App that utilizes [Audd's music recognition API](https://audd.io/) to provide music recognition and lyric tools to music-lovers.**
 
 ## Features
 1. Music Recognition from Recording (Available 1.17.20)
