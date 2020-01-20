@@ -1,0 +1,6 @@
+framework module Pods_mazahs_mazahsUITests {
+  umbrella header "Pods-mazahs-mazahsUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
