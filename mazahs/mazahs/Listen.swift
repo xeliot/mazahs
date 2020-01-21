@@ -41,6 +41,7 @@ struct Listen: View {
     @State var albumText = "~ . ~"
     @State var artistText = "~ . ~"
     @State var spotifyLink = ""
+    @State var googleLink = ""
     @State var lyrics = ""
     
     @State private var isShowingDetails = false
@@ -105,6 +106,7 @@ struct Listen: View {
                                                 self.albumText = "~ " + album.uppercased() + " ~"
                                                 self.artistText = "~ " + artist.uppercased() + " ~"
                                                 self.lyrics = lyrics
+                                                self.googleLink = "https://news.google.com/search?q=" + title.replacingOccurrences(of: " ", with: "%20") + "%20" + artist.replacingOccurrences(of: " ", with: "%20")
                                                 // check if spotify exists
                                                 if result["spotify"] != nil{
                                                     let spotify = result["spotify"] as! NSDictionary
@@ -181,18 +183,34 @@ struct Listen: View {
                         .padding(.top)
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .transition(.opacity)
-                    Button(action: {
-                        if(self.spotifyLink != ""){
-                            if let url = URL(string: self.spotifyLink) {
-                                UIApplication.shared.open(url)
+                    HStack{
+                        Button(action: {
+                            if(self.spotifyLink != ""){
+                                if let url = URL(string: self.spotifyLink) {
+                                    UIApplication.shared.open(url)
+                                }
                             }
-                        }
-                    }){
-                        Image("spotify")
-                            .resizable()
-                            .aspectRatio(contentMode: ContentMode.fit)
-                            .frame(width: 32, height: 32)
-                    }.buttonStyle(PlainButtonStyle()).padding(.top).transition(.opacity)
+                        }){
+                            Image("spotify")
+                                .resizable()
+                                .aspectRatio(contentMode: ContentMode.fit)
+                                .frame(width: 32, height: 32)
+                        }.buttonStyle(PlainButtonStyle()).padding(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                        Button(action: {
+                            print("pressing google link")
+                            print(self.googleLink)
+                            if(self.googleLink != ""){
+                                if let url = URL(string: self.googleLink) {
+                                    UIApplication.shared.open(url)
+                                }
+                            }
+                        }){
+                            Image("google")
+                                .resizable()
+                                .aspectRatio(contentMode: ContentMode.fit)
+                                .frame(width: 32, height: 32)
+                        }.buttonStyle(PlainButtonStyle()).padding(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                    }.padding(.top).transition(.opacity)
                 }
             }
         }.onAppear {
