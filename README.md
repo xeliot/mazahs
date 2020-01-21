@@ -15,5 +15,7 @@
 3. Music Recognition from Typing Lyrics (Coming Soon)
 4. View Lyrics for a Song (Coming Soon)
 
+## Screenshots
+<img src="screenshots/listen_1.png" width="250"/> <img src="screenshots/listen_2.png" width="250"/> <img src="screenshots/listen_3.png" width="250"/> 
 
 Dave Ho - JAN 2020
