@@ -4,8 +4,7 @@
 ██╔████╔██║███████║  ███╔╝ ███████║███████║███████╗
 ██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══██║██╔══██║╚════██║
 ██║ ╚═╝ ██║██║  ██║███████╗██║  ██║██║  ██║███████║
-╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
-                                                   
+╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝                                               
 ```                                                                             
 
 **MAZAHS is an App that utilizes [Audd's music recognition API](https://audd.io/) to provide music recognition and lyric tools to music-lovers.**
