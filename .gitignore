@@ -27,3 +27,6 @@ DerivedData/
 
 #API_KEYS
 ApiKeys.plist
+
+# Mac shit
+.DS_Store
