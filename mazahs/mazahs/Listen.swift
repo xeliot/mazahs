@@ -46,6 +46,8 @@ struct Listen: View {
     @State private var isShowingDetails = false
     @State private var showingLyrics = false
     
+    //@State private var isSpotifyAvailable = false
+    
     var body: some View {
         ZStack {
             Color.black.edgesIgnoringSafeArea(.all)
@@ -99,19 +101,25 @@ struct Listen: View {
                                                 if result["lyrics"] != nil{
                                                     lyrics = (result["lyrics"] as! NSDictionary)["lyrics"] as! String
                                                 }
-                                                let spotify = result["spotify"] as! NSDictionary
-                                                let spotify_album = spotify["album"] as! NSDictionary
-                                                let images = spotify_album["images"] as! NSArray
-                                                let image = images[0] as! NSDictionary
-                                                let image_url = image["url"] as! String
-                                                let spotify_external_urls = spotify["external_urls"] as! NSDictionary
-                                                let spotify_url = spotify_external_urls["spotify"] as! String
-                                                self.imageUrl = image_url
                                                 self.titleText = "~ " + title.uppercased() + " ~"
                                                 self.albumText = "~ " + album.uppercased() + " ~"
                                                 self.artistText = "~ " + artist.uppercased() + " ~"
-                                                self.spotifyLink = spotify_url
                                                 self.lyrics = lyrics
+                                                // check if spotify exists
+                                                if result["spotify"] != nil{
+                                                    let spotify = result["spotify"] as! NSDictionary
+                                                    let spotify_album = spotify["album"] as! NSDictionary
+                                                    let images = spotify_album["images"] as! NSArray
+                                                    let image = images[0] as! NSDictionary
+                                                    let image_url = image["url"] as! String
+                                                    let spotify_external_urls = spotify["external_urls"] as! NSDictionary
+                                                    let spotify_url = spotify_external_urls["spotify"] as! String
+                                                    self.imageUrl = image_url
+                                                    self.spotifyLink = spotify_url
+                                                }else{
+                                                    self.imageUrl = "https://pbs.twimg.com/profile_images/792021404061278208/jXjoU4tA_400x400.jpg"
+                                                    self.spotifyLink = ""
+                                                }
                                                 withAnimation {
                                                     self.isShowingDetails.toggle()
                                                 }
